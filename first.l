@@ -41,11 +41,13 @@ COMM ,
 SEMI ;
 LBRACK \{
 RBRACK \}
+DQOUT \"
 SPACE [\t\n ]+
-STRING \"(\\\n|[^\"])*\"
-ID [a-zA-Z][a-zA-Z0-9_]*
+STRING \"(\\\n|[^\"\n])*\"
+ID ([a-zA-Z][a-zA-Z0-9_]*|(_*[a-zA-Z0-9]+_*)+)
 E ([Ee][+-]?[0-9]+)
 FS (f|F|l|L)
+
 %%
 "/*"([^\*]|\*[^/])*"*/" {comment("comment",yytext);}
 "//".* {comment("comment", yytext);}
@@ -69,6 +71,7 @@ FS (f|F|l|L)
 {SEMI} {comment("SEMI", yytext);}
 {LBRACK} {comment("LBRACK", yytext);}
 {RBRACK} {comment("RBRACK", yytext);}
+{DQOUT} {comment("DQOUT", yytext);}
 {ASSIGN} {comment("ASSIGN", yytext);}
 {STRING} {comment_id("STRING", insert(yytext, string_arr, &string_idx),yytext);}
 {ID} {comment_id("ID", insert(yytext, symbol_arr, &symbol_idx), yytext);}
