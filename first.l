@@ -61,7 +61,7 @@ FS (f|F|l|L)
 {while} {comment("while", yytext);}
 {return} {comment("return", yytext);}
 {INTEGER} {comment_int("INTEGER", yytext, yytext);}
-{double} {comment_double("double", yytext, yytext);}
+{double} {comment("double", yytext);}
 {Operators} {comment("Operators", yytext);}
 {LPAREN} {comment("LPAREN", yytext);}
 {RPAREN} {comment("RPAREN", yytext);}
