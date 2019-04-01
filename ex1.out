@@ -1,0 +1,80 @@
+<int, >		int
+<ID, 1>		main
+<LPAREN, >		(
+<int, >		int
+<ID, 2>		argc
+<COMM, >		,
+<str, >		str
+<ID, 3>		argv
+<RPAREN, >		)
+<LBRACK, >		{
+<int, >		int
+<ID, 4>		_a
+<ASSIGN, >		=
+<INTEGER, 0>		0
+<SEMI, >		;
+<double, >		double
+<ID, 5>		b
+<ASSIGN, >		=
+<DOUBLE, 12.1234>		12.1234
+<SEMI, >		;
+<ID, 5>		b
+<ASSIGN, >		=
+<DOUBLE, 3E2>		3E2
+<SEMI, >		;
+<ID, 5>		b
+<ASSIGN, >		=
+<DOUBLE, 1.32e+23>		1.32e+23
+<SEMI, >		;
+<ID, 5>		b
+<ASSIGN, >		=
+<Operators, >		-
+<DOUBLE, 12.23>		12.23
+<SEMI, >		;
+<ID, 5>		b
+<ASSIGN, >		=
+<DOUBLE, 0.032>		0.032
+<SEMI, >		;
+<ID, 4>		_a
+<ASSIGN, >		=
+<INTEGER, 3545123434>		10823545123434
+<SEMI, >		;
+<print, >		print
+<LPAREN, >		(
+<STRING, 1>		"string\
+	  testing"
+<RPAREN, >		)
+<SEMI, >		;
+<if, >		if
+<LPAREN, >		(
+<ID, 4>		_a
+<Operators, >		>
+<INTEGER, 1>		1
+<RPAREN, >		)
+<LBRACK, >		{
+<return, >		return
+<SEMI, >		;
+<RBRACK, >		}
+<comment, >		//program end
+<str, >		str
+<ID, 6>		dbg
+<ASSIGN, >		=
+<STRING, 2>		""
+<SEMI, >		;
+<comment, >		/*
+	 * writer : 201420904
+	 */
+<RBRACK, >		}
+
+index|symbol
+  1  |  main
+  2  |  argc
+  3  |  argv
+  4  |  _a
+  5  |  b
+  6  |  dbg
+
+index|strings
+  1  |  "string\
+	  testing"
+  2  |  ""

@@ -1,0 +1,32 @@
+<int, >		int
+<ID, 1>		main
+<LPAREN, >		(
+<int, >		int
+<ID, 2>		argc
+<COMM, >		,
+<str, >		str
+<ID, 3>		argv
+<RPAREN, >		)
+<LBRACK, >		{
+<int, >		int
+error "_" near by line:1
+error "_" near by line:1
+error "_" near by line:1
+<ASSIGN, >		=
+<INTEGER, 3>		3
+<SEMI, >		;
+<int, >		int
+<INTEGER, 1>		1
+<ID, 4>		ad
+<ASSIGN, >		=
+<INTEGER, 1>		1
+<SEMI, >		;
+<RBRACK, >		}
+
+index|symbol
+  1  |  main
+  2  |  argc
+  3  |  argv
+  4  |  ad
+
+index|strings

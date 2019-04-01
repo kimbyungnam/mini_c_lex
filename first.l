@@ -8,7 +8,9 @@ char symbol_arr[MAX_LEN][MAX_LEN];
 char string_arr[MAX_LEN][MAX_LEN];
 int symbol_idx = 1;
 int string_idx = 1;
-
+int yyerror(char* format){
+	printf("error \"%s\" near by line:%d\n",format, yylineno);
+}
 void comment(char* token, char* text){
 	printf("<%s, >\t\t%s\n",token, text);
 }
@@ -32,7 +34,7 @@ return return
 str str
 else else
 print print
-INTEGER -?[0-9]+
+INTEGER [1-9][0-9]*|0
 Operators \+|-|\*|\/|>|>=|<|<=|==|!=
 ASSIGN =
 LPAREN \(
@@ -44,7 +46,7 @@ RBRACK \}
 DQOUT \"
 SPACE [\t\n ]+
 STRING \"(\\\n|[^\"\n])*\"
-ID ([a-zA-Z][a-zA-Z0-9_]*|(_*[a-zA-Z0-9]+_*)+)
+ID ([a-zA-Z][a-zA-Z0-9_]*|(_+[a-zA-Z0-9]+_*)+)
 E ([Ee][+-]?[0-9]+)
 FS (f|F|l|L)
 
@@ -56,9 +58,9 @@ FS (f|F|l|L)
 {else} {comment("else", yytext);}
 {str} {comment("str", yytext);}
 {int} {comment("int", yytext);}
--?[0-9]+"."[0-9]*{E}?{FS}? {comment_double("DOUBLE", yytext, yytext);}
--?[0-9]+{E}{FS}? {comment_double("DOUBLE", yytext, yytext);}
--?[0-9]*"."[0-9]+{E}?{FS}? {comment_double("DOUBLE", yytext, yytext);}
+[0-9]+"."[0-9]*{E}?{FS}? {comment_double("DOUBLE", yytext, yytext);}
+[0-9]+{E}{FS}? {comment_double("DOUBLE", yytext, yytext);}
+[0-9]*"."[0-9]+{E}?{FS}? {comment_double("DOUBLE", yytext, yytext);}
 {if} {comment("if", yytext);}
 {while} {comment("while", yytext);}
 {return} {comment("return", yytext);}
@@ -75,6 +77,7 @@ FS (f|F|l|L)
 {ASSIGN} {comment("ASSIGN", yytext);}
 {STRING} {comment_id("STRING", insert(yytext, string_arr, &string_idx),yytext);}
 {ID} {comment_id("ID", insert(yytext, symbol_arr, &symbol_idx), yytext);}
+. {yyerror(yytext);}
 %%
 int check(char* val, char arr[MAX_LEN][MAX_LEN], int* idx){
 	for(int i=1; i<*idx; i++){

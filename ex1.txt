@@ -1,0 +1,21 @@
+int main(int argc, str argv){
+	int _a = 0;
+	double b = 12.1234;
+	b = 3E2;
+	b = 1.32e+23;
+	b = -12.23;
+	b = 0.032;
+
+	_a = 10823545123434;
+
+	print("string\
+	  testing");
+
+	if(_a > 1){
+		return;
+	}//program end
+	str dbg = "";
+	/*
+	 * writer : 201420904
+	 */
+}
